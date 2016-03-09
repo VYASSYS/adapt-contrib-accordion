@@ -35,8 +35,8 @@ define([
         },
 
         setUpEventListeners: function() {
-
-        	this.listenTo(this.model, this.completionevent, this.onCompletion, this);
+            
+            this.listenTo(this.model, this.completionevent, this.onCompletion, this);
             this.listenTo(Adapt, "device:resize", this.onResize, this);
 
         },
@@ -44,10 +44,10 @@ define([
         postRender: function(isFirstRender) {
             if (!isFirstRender) return;
             
-        	this.$(".component-widget").imageready(_.bind(function() {
-	            this.setReadyStatus();
-	        }, this));
-
+            this.$(".component-widget").imageready(_.bind(function() {
+                this.setReadyStatus();
+            }, this));
+            
         },
 
         toggleItem: function(event) {
@@ -107,9 +107,9 @@ define([
         },
 
         onCompletion: function() {
-        	this.setCompletionStatus();
-
-        	this.stopListening(this.model, this.completionevent);
+            this.setCompletionStatus();
+            
+            this.stopListening(this.model, this.completionevent);
         }
 
     });
