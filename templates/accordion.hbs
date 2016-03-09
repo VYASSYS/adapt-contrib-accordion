@@ -3,14 +3,14 @@
     <div class="accordion-widget component-widget">
         {{#each _items}}
         <div class="accordion-item">
-            <button role="button" class="base accordion-item-title {{#if _isVisited}}visited{{/if}}" aria-expanded="false" aria-label="{{{title}}}">
+            <button role="button" class="base accordion-item-title accordion-item-title-{{@index}} {{#if _isVisited}}visited{{/if}} {{#if_value_equals ../_currentIndex @index}}selected{{else}}not-selected{{/if_value_equals}}" aria-expanded={{#if_value_equals ../_currentIndex @index}}"false"{{else}}"true"{{/if_value_equals}} aria-label="{{{title}}}" data-index="{{@index}}">
               <div class="accordion-item-title-inner">
-                <div class="accordion-item-title-icon icon icon-plus h5"></div>
+                <div class="accordion-item-title-icon icon {{#if_value_equals ../_currentIndex @index}}icon-minus{{else}}icon-plus{{/if_value_equals}} h5"></div>
                       {{{title}}}
               </div>
             </button>
-            <div class="accordion-item-body">
-                <div class="accordion-item-body-inner">
+            <div class="accordion-item-body accordion-item-body-{{@index}} {{#if_value_equals ../_currentIndex @index}}selected{{else}}not-selected{{/if_value_equals}}" style="{{#if_value_equals ../_currentIndex @index}}height:{{../../_currentIndexHeight}}px;{{/if_value_equals}}">
+                <div class="accordion-item-body-inner accordion-item-body-inner-{{@index}}">
                     <div class="accordion-item-text">
                         {{{a11y_text body}}}
                     </div>

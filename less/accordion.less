@@ -60,6 +60,7 @@
                     color: @item-text-color-hover;
                 }
             }
+
             &.visited:hover {
                 color: @item-text-color-hover;
                 background-color: @item-color-hover;
@@ -69,6 +70,7 @@
                     color: @item-text-color-hover;
                 }
             }
+
             &.selected:hover {
                 background-color: @item-color-hover;
             }
@@ -76,9 +78,20 @@
     }
 
     .accordion-item-body {
+        height:0px;
+        transition: height .2s ease;
+        -webkit-transition: height .2s ease;
+        overflow: hidden;
         color: @item-body-text-color;
         background-color: @item-body-color;
-        display:none;
+
+        &.not-selected {
+            //make sure to hide the body borders when not selected
+            border-top: 0px !important;
+            border-bottom: 0px !important;
+            visibility: hidden !important;
+        }
+
     }
 
     .accordion-item-body-inner {
