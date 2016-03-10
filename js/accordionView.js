@@ -9,13 +9,14 @@ define([
             "displayTitle",
             "body",
             "title",
+            "instruction",
             "_currentIndex",
             "_currentIndexHeight",
             "_items",
             "_isComplete"
         ],
 
-    	completionevent: "allItems",
+    	completionEvent: "allItems",
 
         events: {
             'click .accordion-item-title': 'toggleItem'
@@ -36,7 +37,7 @@ define([
 
         setUpEventListeners: function() {
             
-            this.listenTo(this.model, this.completionevent, this.onCompletion, this);
+            this.listenTo(this.model, this.completionEvent, this.onCompletion, this);
             this.listenTo(Adapt, "device:resize", this.onResize, this);
 
         },
@@ -109,7 +110,7 @@ define([
         onCompletion: function() {
             this.setCompletionStatus();
             
-            this.stopListening(this.model, this.completionevent);
+            this.stopListening(this.model, this.completionEvent);
         }
 
     });
